@@ -11,7 +11,8 @@ const Markov = require('markov-strings');
 
 const {
 	ACCESS_TOKEN,
-	API_URL = 'https://botsin.space/api/v1/',
+	INSTANCE = 'botsin.space',
+	API_VERSION = 2,
 	USERNAME = '@Pyretta@girlcock.club',
 	POST_EVERY_X_MINUTES = 30,
 	MAX_LENGTH = 400,
@@ -34,7 +35,7 @@ const {
 
 const M = new Mastodon({
 	access_token: ACCESS_TOKEN,
-	api_url: API_URL
+	api_url: `https://${INSTANCE}/api/v${API_VERSION}/`
 });
 
 (async () => {
