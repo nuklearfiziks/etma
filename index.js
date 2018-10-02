@@ -14,7 +14,9 @@ const {
 	API_URL = 'https://botsin.space/api/v1/',
 	USERNAME = '@Pyretta@girlcock.club',
 	POST_EVERY_X_MINUTES = 30,
-	MAX_LENGTH = 400
+	MAX_LENGTH = 400,
+	MIN_WORDS = 10,
+	MIN_SCORE = 25
 } = process.env;
 
 if (!ACCESS_TOKEN) {
@@ -37,8 +39,8 @@ const M = new Mastodon({
 		const toots = await getUserToots(M, userId);
 		const marky = new Markov(toots, {
 			maxLength: MAX_LENGTH,
-			minWords: 10,
-			minScore: 25,
+			minWords: MIN_WORDS,
+			minScore: MIN_SCORE,
 			filter: result => {
 				return result.string.endsWith('.'); // I want my tweets to end with a dot.
 			}
