@@ -1,0 +1,38 @@
+{
+  "name": "ETMA.bot",
+  "description": "A really simple Markov Chain generating bot for Mastodon",
+  "repository": "https://github.com/nuklearfiziks/etma",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "mastodon", "markov"],
+  "env": {
+      "ACCESS_TOKEN": {
+          "description": "Mastodon API token",
+          "generator": "secret",
+          "required": true
+      },
+      "INSTANCE": {
+          "description": "The bot's Mastodon instance",
+          "required": true
+      },
+      "USERNAME": {
+          "description": "User to Markov",
+          "required": true
+      },
+      "POST_EVERY_X_MINUTES": {
+          "description": "How many minutes between posts",
+          "required": false
+      },
+      "MAX_LENGTH": {
+          "description": "Max post length (chars)",
+          "required": false
+      },
+      "MIN_WORDS": {
+          "description": "Minimum number of words",
+          "required": false
+      },
+      "MIN_SCORE": {
+          "description": "Minimum score to be successful",
+          "required": false
+      }
+  }
+}

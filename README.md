@@ -29,11 +29,10 @@ Note, be careful with this token as anyone with it can act as that user!
 
 ### 3. Click dis button hurrr vvvv
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/nuklearfiziks/etma&env=ACCESS_TOKEN&env=INSTANCE&env=USERNAME&env=POST_EVERY_X_MINUTES)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ### 4. Fill out the form and you're donezo
 
-- *ZEIT_ACCESS_TOKEN* Create one via the link
 - *ACCESS_TOKEN* Fill in the one you generated earlier
 - *INSTANCE* This is the domain of your *bot's* instance. Defaults to:
     ```
