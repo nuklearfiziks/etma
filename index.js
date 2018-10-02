@@ -28,6 +28,10 @@ const {
 	getUserId
 } = require('./lib/generate-corpus');
 
+const {
+	cleanToot
+} = require('./lib/util');
+
 const M = new Mastodon({
 	access_token: ACCESS_TOKEN,
 	api_url: API_URL
@@ -37,8 +41,10 @@ const M = new Mastodon({
 	try {
 		const userId = await getUserId(M, USERNAME);
 		const toots = await getUserToots(M, userId);
+		const cleaned = toots.filter(i => i)
+			.map(({content}) => cleanToot(content));
 
-		const marky = new Markov(toots, {
+		const marky = new Markov(cleaned, {
 			maxLength: MAX_LENGTH,
 			minWords: MIN_WORDS,
 			minScore: MIN_SCORE,
@@ -50,15 +56,18 @@ const M = new Mastodon({
 		await marky.buildCorpus();
 		console.info(`Populated corpus with ${toots.length} toots`);
 
-		setInterval(async () => {
+		const postStatus = async () => {
 			try {
 				const status = await marky.generateSentence();
-				await M.post('statuses', {status});
-				console.info(`Posted status:\n${status}`);
+				await M.post('statuses', {status: status.string});
+				console.info(`Posted status:\n${status.string}`);
 			} catch (error) {
 				console.error(error);
 			}
-		}, POST_EVERY_X_MINUTES * 60 * 1000);
+		};
+
+		await postStatus();
+		setInterval(postStatus, POST_EVERY_X_MINUTES * 60 * 1000);
 	} catch (error) {
 		console.error(error);
 	}

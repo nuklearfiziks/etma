@@ -19,11 +19,11 @@ ii. Click the "Developer" link in the sidebar
 
 iii. Click "New Application"
 
-iv. Give it a name, leave everything else the same; click Done
+iv. Give it a name, leave everything else the same; click Done to return to the previous screen.
 
-v. Go back to your bot after creating it
+v. Go back to your bot after creating it by clicking its name.
 
-vi. Copy the newly generated big-ass string in the "Your access token" field
+vi. In the new field full of tokens at the top, copy the newly generated big-ass string in the "Your access token" field.
 
 Note, be careful with this token as anyone with it can act as that user!
 
