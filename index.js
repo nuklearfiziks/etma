@@ -12,7 +12,7 @@ const Markov = require('markov-strings');
 const {
 	ACCESS_TOKEN,
 	INSTANCE = 'botsin.space',
-	API_VERSION = 2,
+	API_VERSION = 1,
 	USERNAME = '@Pyretta@girlcock.club',
 	POST_EVERY_X_MINUTES = 30,
 	MAX_LENGTH = 400,
