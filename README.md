@@ -14,10 +14,15 @@ I like [botsin.space](https://botsin.space) personally
 This is a multi stage step!
 
 i. Go to "Edit Profile" once logged into your bot account
+
 ii. Click the "Developer" link in the sidebar
+
 iii. Click "New Application"
+
 iv. Give it a name, leave everything else the same; click Done
+
 v. Go back to your bot after creating it
+
 vi. Copy the newly generated big-ass string in the "Your access token" field
 
 Note, be careful with this token as anyone with it can act as that user!
