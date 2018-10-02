@@ -37,6 +37,7 @@ const M = new Mastodon({
 	try {
 		const userId = await getUserId(M, USERNAME);
 		const toots = await getUserToots(M, userId);
+
 		const marky = new Markov(toots, {
 			maxLength: MAX_LENGTH,
 			minWords: MIN_WORDS,
@@ -45,16 +46,20 @@ const M = new Mastodon({
 				return result.string.endsWith('.'); // I want my tweets to end with a dot.
 			}
 		});
+
 		await marky.buildCorpus();
+		console.info(`Populated corpus with ${toots.length} toots`);
+
 		setInterval(async () => {
 			try {
 				const status = await marky.generateSentence();
 				await M.post('statuses', {status});
+				console.info(`Posted status:\n${status}`);
 			} catch (error) {
 				console.error(error);
 			}
 		}, POST_EVERY_X_MINUTES * 60 * 1000);
 	} catch (error) {
-		console.error(error.statusCode);
+		console.error(error);
 	}
 })();
