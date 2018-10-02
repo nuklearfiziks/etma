@@ -31,6 +31,10 @@ Note, be careful with this token as anyone with it can act as that user!
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+### 3a. Sign up for Heroku if you don't have an account
+
+(Don't worry, this bot will fall under one of Heroku's free plans)
+
 ### 4. Fill out the form and you're donezo
 
 - *ACCESS_TOKEN* Fill in the one you generated earlier
